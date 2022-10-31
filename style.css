@@ -1,0 +1,231 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* No animations on the page, nothing to turn off */
+
+/* General styling */
+
+:root {
+	--color-violet: hsl(258, 80%, 62%); /* #8052ec */
+	--color-magenta: hsl(283, 100%, 69%); /* #d161ff */
+	--color-pale-blue: hsl(200, 3%, 83%); /* #d1d3d4 */
+	--color-dark-gray: hsl(0, 0%, 7%); /* #111111 */
+
+	--color-accent-violet: hsl(258, 87%, 56%);
+
+	--font-size-300: 15px;
+	--font-size-400: 16px;
+
+	--font-weight-normal: 400;
+	--font-weight-semibold: 500;
+}
+
+body {
+	height: 100vh;
+	background: linear-gradient(135deg, var(--color-violet), var(--color-magenta));
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+
+	font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+	max-width: 40rem;
+
+	margin: min(4.27vw, 2rem);
+	padding-block: 2.5rem;
+	padding-inline: 1.875rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 3.75rem;
+}
+
+.button {
+	position: relative;
+
+	border-radius: 5px;
+	outline: none;
+
+	background-color: var(--color-violet);
+	border: none;
+	cursor: pointer;
+
+	color: white;
+
+	font-size: var(--font-size-400);
+	font-weight: var(--font-weight-semibold);
+}
+
+/* New task */
+
+.new-task {
+	display: grid;
+	gap: 0.75rem;
+	grid-template-columns: 1fr 20%;
+
+	padding-block: 2.5rem;
+	padding-inline: 1.875rem;
+
+	border-radius: 5px;
+	outline: none;
+
+	background-color: white;
+
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.new-task__input {
+	width: 100%;
+	height: 2.8125rem;
+
+	padding: 0.9375rem;
+
+	border: 2px solid var(--color-pale-blue);
+	border-radius: 5px;
+
+	color: var(--color-dark-gray);
+
+	font-size: var(--font-size-300);
+	font-weight: var(--font-weight-semibold);
+}
+
+.button--new-task {
+	height: 2.8125rem;
+}
+
+/* Task list */
+
+.task-list {
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+
+	padding-block: 2.5rem;
+	padding-inline: 1.875rem;
+
+	border-radius: 0.625rem;
+
+	background-color: white;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.task-list__task {
+	min-height: 3.125rem;
+
+	padding-block: 5px 0.625rem;
+
+	display: grid;
+	align-items: center;
+	grid-template-columns: 1fr 2.5rem;
+	gap: 1rem;
+
+	border-bottom: 2px solid var(--color-pale-blue);
+
+	font-weight: var(--font-size-400);
+}
+
+.task-list--empty {
+	display: none;
+}
+
+.button--delete {
+	justify-self: end;
+
+	height: 2.5rem;
+	width: 2.5rem;
+}
+
+.task-list__text--completed {
+	text-decoration: line-through;
+}
+
+/* Active states */
+
+@media (hover: hover) {
+	.new-task__input:hover {
+		border-color: var(--color-accent-violet);
+	}
+
+	.button:hover {
+		background-color: var(--color-accent-violet);
+	}
+}
+
+.new-task__input:focus {
+	outline: none;
+	border-color: var(--color-accent-violet);
+}
+
+.button:focus {
+	background-color: var(--color-accent-violet);
+}
+
+/* Media query */
+
+@media screen and (min-width: 40rem) {
+	body {
+		justify-content: center;
+	}
+}
